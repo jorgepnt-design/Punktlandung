@@ -1,0 +1,234 @@
+:root {
+  --paper: #fafafa;
+  --grid: #e6e6e6;
+  --card: #e5e5e5;
+  --card-inner: #d6d6d6;
+  --ink: #111;
+  --muted: #555;
+  --accent: #d62828;
+  --radius: 4px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  color: var(--ink);
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 28px 28px;
+  line-height: 1.5;
+}
+
+a { color: inherit; }
+
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 4px; }
+
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+}
+
+.back {
+  display: inline-block;
+  margin-bottom: 20px;
+  font-size: .95rem;
+  text-decoration: none;
+  letter-spacing: .05em;
+}
+.back:hover { text-decoration: underline; }
+
+.panel {
+  background: var(--card);
+  border: 1.5px solid var(--ink);
+  border-radius: var(--radius);
+  padding: clamp(20px, 4vw, 40px);
+}
+
+h1, h2 {
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  margin: 0 0 24px;
+}
+h1 { font-size: clamp(1.6rem, 5vw, 2.6rem); }
+
+.breadcrumb {
+  margin-top: 32px;
+  font-size: .85rem;
+  color: var(--muted);
+}
+.breadcrumb a { text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* ---------- Kacheln ---------- */
+.tiles {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) {
+  .tiles { grid-template-columns: repeat(3, 1fr); }
+  .tiles.two { grid-template-columns: repeat(2, minmax(0, 260px)); justify-content: center; gap: 40px; }
+}
+
+.tile {
+  position: relative;
+  display: block;
+  min-height: 140px;
+  padding: 20px;
+  background: var(--card-inner);
+  border: 1.5px solid var(--ink);
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-size: 1.35rem;
+  line-height: 1.2;
+  transition: transform .25s var(--ease-out), box-shadow .25s var(--ease-out);
+}
+.tile:hover, .tile:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0,0,0,.15);
+}
+.tile p {
+  margin: 12px 0 0;
+  font-size: .95rem;
+  line-height: 1.4;
+  color: var(--muted);
+}
+.tile .corner {
+  position: absolute;
+  top: 0; right: 0;
+  width: 30px; height: 30px;
+  display: grid; place-items: center;
+  font-size: .9rem;
+  border-left: 1.5px solid var(--ink);
+  border-bottom: 1.5px solid var(--ink);
+  border-bottom-left-radius: 14px;
+}
+.tile.big { min-height: 140px; font-size: 1.6rem; text-transform: uppercase; letter-spacing: .08em; }
+
+/* ---------- Listen ---------- */
+.list { list-style: none; margin: 0; padding: 0; }
+.list li {
+  position: relative;
+  padding: 10px 0 10px 24px;
+  border-bottom: 1px dashed #bbb;
+}
+.list li:last-child { border-bottom: 0; }
+.list li::before {
+  content: "";
+  position: absolute; left: 4px; top: 1.15em;
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--ink);
+}
+
+/* ---------- Akkordeon (Ich bin) ---------- */
+details.tile { cursor: pointer; }
+details.tile summary { list-style: none; }
+details.tile summary::-webkit-details-marker { display: none; }
+details.tile summary::after { content: " +"; color: var(--muted); }
+details.tile[open] summary::after { content: " –"; }
+details.tile:hover { transform: none; }
+
+/* ---------- Startseite / Punktlandung ---------- */
+.hero {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  padding: 24px 16px;
+  overflow: hidden;
+}
+.hero h1 {
+  margin: 0;
+  text-align: center;
+  font-size: clamp(1.8rem, 7vw, 3.6rem);
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  animation: fadeIn .8s ease 2.6s forwards;
+}
+
+.target {
+  position: relative;
+  width: 96px; height: 96px;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+.target::after {            /* Pulswelle */
+  content: "";
+  position: absolute; inset: -2px;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  opacity: 0;
+}
+.dot {
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 40px; height: 40px;
+  margin: -20px 0 0 -20px;
+  border-radius: 50%;
+  background: var(--ink);
+  transform: scale(var(--start-scale, 60));
+  animation: land 2.8s var(--ease-out) .2s forwards;
+  z-index: 3;
+}
+.landed .target::after { animation: pulse .9s ease-out; }
+
+@keyframes land {
+  0%   { transform: scale(var(--start-scale, 60)); }
+  85%  { transform: scale(1); }
+  91%  { transform: scale(.82); }
+  96%  { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+@keyframes pulse {
+  0%   { transform: scale(1);   opacity: .7; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+@keyframes fadeIn { to { opacity: 1; } }
+@keyframes rise {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.choice {
+  width: 100%;
+  max-width: 640px;
+  opacity: 0;
+  visibility: hidden;
+}
+.landed .choice { visibility: visible; animation: rise .8s var(--ease-out) .3s forwards; }
+
+.hint {
+  font-size: .85rem;
+  color: var(--muted);
+  letter-spacing: .1em;
+  margin: 0;
+  opacity: 0;
+}
+.landed .hint { animation: fadeIn .6s ease 1s forwards; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .dot { transform: scale(1); }
+  .hero h1, .choice, .hint { opacity: 1; visibility: visible; }
+}
+
+/* Seitenwechsel */
+@view-transition { navigation: auto; }
+@media (min-width: 640px) { .tile.big { min-height: 200px; } }
