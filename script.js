@@ -17,10 +17,16 @@
 
   dot.addEventListener('animationend', land);
   // Ungeduldige dürfen per Klick überspringen
-  document.querySelector('.target').addEventListener('click', function () {
+  function skip() {
+    if (hero.classList.contains('landed')) return;
     dot.style.animation = 'none';
     dot.style.transform = 'scale(1)';
     land();
-  });
+  }
+  document.querySelector('.target').addEventListener('click', skip);
+  // Auch Scrollen, Wischen oder eine Taste überspringen die Animation
+  window.addEventListener('wheel', skip, { once: true, passive: true });
+  window.addEventListener('touchmove', skip, { once: true, passive: true });
+  window.addEventListener('keydown', skip, { once: true });
   setTimeout(land, 3500); // Fallback
 })();
