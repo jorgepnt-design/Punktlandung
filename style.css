@@ -130,14 +130,6 @@ h1 { font-size: clamp(1.6rem, 5vw, 2.6rem); }
   background: var(--ink);
 }
 
-/* ---------- Akkordeon (Ich bin) ---------- */
-details.tile { cursor: pointer; }
-details.tile summary { list-style: none; }
-details.tile summary::-webkit-details-marker { display: none; }
-details.tile summary::after { content: " +"; color: var(--muted); }
-details.tile[open] summary::after { content: " –"; }
-details.tile:hover { transform: none; }
-
 /* ---------- Startseite / Punktlandung ---------- */
 .hero {
   min-height: 100vh;
