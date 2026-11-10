@@ -224,3 +224,16 @@ h1 { font-size: clamp(1.6rem, 5vw, 2.6rem); }
 /* Seitenwechsel */
 @view-transition { navigation: auto; }
 @media (min-width: 640px) { .tile.big { min-height: 200px; } }
+
+/* Zentrierte, große Kacheln (Du bist) */
+.tiles.centered .tile {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-size: clamp(1.6rem, 6vw, 2rem);
+  font-weight: 500;
+  letter-spacing: .02em;
+}
+@media (min-width: 640px) {
+  .tiles.centered .tile { font-size: clamp(1.3rem, 2.4vw, 1.8rem); min-height: 180px; }
+}
