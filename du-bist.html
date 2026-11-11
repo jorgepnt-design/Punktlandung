@@ -6,21 +6,50 @@
   <title>Du bist – Punktlandung</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="page">
-    <a class="back" href="index.html">← Zurück</a>
-    <section class="panel">
-      <h1>Du bist</h1>
-      <div class="tiles centered">
-        <a class="tile" href="wirtschaft.html">Wirtschaft</a>
-        <a class="tile" href="wissenschaft.html">Wissenschaft</a>
-        <a class="tile" href="verwaltung.html">Verwaltung</a>
-      </div>
-    </section>
-    <nav class="breadcrumb" aria-label="Brotkrumen"><a href="index.html">Punktlandung</a> › Du bist</nav>
+  <main class="sub">
+    <span class="label">Punktlandung</span>
+    <h1>Du bist</h1>
+    <p class="lead">Wähle deinen Bereich</p>
+    <div class="segmented" role="tablist" aria-label="Du bist" style="--cols: 3">
+        <button type="button" role="tab" id="tab-wirtschaft" data-key="wirtschaft" aria-selected="false" aria-controls="panel-wirtschaft" tabindex="-1">Wirtschaft</button>
+        <button type="button" role="tab" id="tab-wissenschaft" data-key="wissenschaft" aria-selected="false" aria-controls="panel-wissenschaft" tabindex="-1">Wissenschaft</button>
+        <button type="button" role="tab" id="tab-verwaltung" data-key="verwaltung" aria-selected="false" aria-controls="panel-verwaltung" tabindex="-1">Verwaltung</button>
+    </div>
+      <section class="tabpanel" id="panel-wirtschaft" role="tabpanel" aria-labelledby="tab-wirtschaft" hidden>
+        <span class="label">Schwerpunkte Wirtschaft</span>
+        <!-- TODO: Text einfügen -->
+        <ul class="bars">
+          <li>Platzhalter Punkt 1</li>
+          <li>Platzhalter Punkt 2</li>
+          <li>Platzhalter Punkt 3</li>
+          <li>Platzhalter Punkt 4</li>
+        </ul>
+      </section>
+      <section class="tabpanel" id="panel-wissenschaft" role="tabpanel" aria-labelledby="tab-wissenschaft" hidden>
+        <span class="label">Schwerpunkte Wissenschaft</span>
+        <!-- TODO: Text einfügen -->
+        <ul class="bars">
+          <li>Platzhalter Punkt 1</li>
+          <li>Platzhalter Punkt 2</li>
+          <li>Platzhalter Punkt 3</li>
+          <li>Platzhalter Punkt 4</li>
+        </ul>
+      </section>
+      <section class="tabpanel" id="panel-verwaltung" role="tabpanel" aria-labelledby="tab-verwaltung" hidden>
+        <span class="label">Schwerpunkte Verwaltung</span>
+        <!-- TODO: Text einfügen -->
+        <ul class="bars">
+          <li>Platzhalter Punkt 1</li>
+          <li>Platzhalter Punkt 2</li>
+          <li>Platzhalter Punkt 3</li>
+        </ul>
+      </section>
+    <a class="pill-outline" href="index.html">Zurück zum Start</a>
   </main>
+  <script src="script.js"></script>
 </body>
 </html>

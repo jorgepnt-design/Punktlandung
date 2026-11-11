@@ -6,22 +6,20 @@
   <title>Punktlandung</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="hero">
-    <h1>Punktlandung</h1>
-    <button class="target" type="button" aria-label="Animation überspringen">
-      <span class="dot" aria-hidden="true"></span>
-    </button>
-    <nav class="choice" aria-label="Auswahl">
-      <div class="tiles two">
-        <a class="tile big" href="du-bist.html">Du<br>bist<span class="corner">A</span></a>
-        <a class="tile big" href="ich-bin.html">Ich<br>bin<span class="corner">B</span></a>
-      </div>
-    </nav>
-    <p class="hint">Wähle deinen Weg</p>
+  <main class="intro">
+    <span class="label corner">Punktlandung</span>
+    <svg class="web" viewBox="-1200 -1200 2400 2400" aria-hidden="true"></svg>
+    <div class="stage">
+      <h1 class="intro-title">Punktlandung</h1>
+      <span class="axis" aria-hidden="true"></span>
+      <span class="dot" role="button" aria-label="Animation überspringen"></span>
+      <a class="choice left pill" href="ich-bin.html">Ich bin</a>
+      <a class="choice right pill" href="du-bist.html">Du bist</a>
+    </div>
   </main>
   <script src="script.js"></script>
 </body>

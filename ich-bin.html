@@ -6,21 +6,42 @@
   <title>Ich bin – Punktlandung</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="page">
-    <a class="back" href="index.html">← Zurück</a>
-    <section class="panel">
-      <h1>Ich bin</h1>
-      <div class="tiles centered">
-        <a class="tile" href="wer-bin-ich.html">Wer bin ich?</a>
-        <a class="tile" href="was-kann-ich.html">Was kann ich?</a>
-        <a class="tile" href="was-kann-ich-nicht.html">Was kann ich nicht?</a>
-      </div>
-    </section>
-    <nav class="breadcrumb" aria-label="Brotkrumen"><a href="index.html">Punktlandung</a> › Ich bin</nav>
+  <main class="sub">
+    <span class="label">Punktlandung</span>
+    <h1>Ich bin</h1>
+    <p class="lead">Lerne mich kennen</p>
+    <div class="segmented" role="tablist" aria-label="Ich bin" style="--cols: 3">
+        <button type="button" role="tab" id="tab-wer" data-key="wer" aria-selected="false" aria-controls="panel-wer" tabindex="-1">Wer bin ich?</button>
+        <button type="button" role="tab" id="tab-kann" data-key="kann" aria-selected="false" aria-controls="panel-kann" tabindex="-1">Was kann ich?</button>
+        <button type="button" role="tab" id="tab-kann-nicht" data-key="kann-nicht" aria-selected="false" aria-controls="panel-kann-nicht" tabindex="-1">Was kann ich nicht?</button>
+    </div>
+      <section class="tabpanel" id="panel-wer" role="tabpanel" aria-labelledby="tab-wer" hidden>
+        <div class="card">
+          <h2>Wer bin ich?</h2>
+          <!-- TODO: Text einfügen -->
+          <p>Inhalt folgt in Kürze.</p>
+        </div>
+      </section>
+      <section class="tabpanel" id="panel-kann" role="tabpanel" aria-labelledby="tab-kann" hidden>
+        <div class="card">
+          <h2>Was kann ich?</h2>
+          <!-- TODO: Text einfügen -->
+          <p>Inhalt folgt in Kürze.</p>
+        </div>
+      </section>
+      <section class="tabpanel" id="panel-kann-nicht" role="tabpanel" aria-labelledby="tab-kann-nicht" hidden>
+        <div class="card">
+          <h2>Was kann ich nicht?</h2>
+          <!-- TODO: Text einfügen -->
+          <p>Inhalt folgt in Kürze.</p>
+        </div>
+      </section>
+    <a class="pill-outline" href="index.html">Zurück zum Start</a>
   </main>
+  <script src="script.js"></script>
 </body>
 </html>

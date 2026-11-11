@@ -5,11 +5,13 @@ Statische Website (HTML/CSS/JS, kein Build-Schritt).
 ## Seiten
 | Datei | Inhalt |
 |---|---|
-| `index.html` | Startseite mit Punktlandungs-Animation + Auswahl „Du bist“ (A) / „Ich bin“ (B) |
-| `du-bist.html` | Wirtschaft · Wissenschaft · Verwaltung |
-| `ich-bin.html` | Wer bin ich? · Was kann ich? · Was kann ich nicht? |
-| `wer-bin-ich.html`, `was-kann-ich.html`, `was-kann-ich-nicht.html` | Unterseiten zu „Ich bin“ |
-| `wirtschaft.html`, `wissenschaft.html`, `verwaltung.html` | Unterseiten mit Aufzählungen |
+| `index.html` | Startanimation: Punkt landet, Linie öffnet sich mit „Ich bin“ / „Du bist“, Spinnennetz beim Klick |
+| `du-bist.html` | Auswahl Wirtschaft · Wissenschaft · Verwaltung, darunter die Schwerpunkte (direkt verlinkbar mit `#wirtschaft`, `#wissenschaft`, `#verwaltung`) |
+| `ich-bin.html` | Auswahl Wer bin ich? · Was kann ich? · Was kann ich nicht? (`#wer`, `#kann`, `#kann-nicht`) |
+
+Die alten Einzelseiten (`wirtschaft.html` usw.) leiten auf den passenden Bereich weiter.
+
+Schriften: Space Grotesk (Titel, Text) und Cormorant Garamond (Seitentitel) über Google Fonts.
 
 Platzhaltertexte sind mit `<!-- TODO: Text einfügen -->` markiert.
 
