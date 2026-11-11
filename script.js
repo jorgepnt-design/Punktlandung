@@ -5,23 +5,6 @@
   var intro = document.querySelector('.intro');
   if (intro) {
     var dot = intro.querySelector('.dot');
-    var web = intro.querySelector('.web');
-
-    // Spinnennetz aufbauen: 12 Speichen + 5 Ringe
-    var N = 12, R = [70, 120, 180, 250, 330], svg = '';
-    for (var i = 0; i < N; i++) {
-      var a = (i / N) * Math.PI * 2;
-      svg += '<path class="spoke" pathLength="1" d="M0 0L' + (1200 * Math.cos(a)).toFixed(1) + ' ' + (1200 * Math.sin(a)).toFixed(1) + '"/>';
-    }
-    R.forEach(function (r) {
-      var d = '';
-      for (var j = 0; j <= N; j++) {
-        var b = (j / N) * Math.PI * 2;
-        d += (j ? 'L' : 'M') + (r * Math.cos(b)).toFixed(1) + ' ' + (r * Math.sin(b)).toFixed(1);
-      }
-      svg += '<path class="ring" pathLength="1" d="' + d + 'Z"/>';
-    });
-    web.innerHTML = svg;
 
     // Startgröße: der Punkt füllt den ganzen Bildschirm
     var diagonal = Math.hypot(window.innerWidth, window.innerHeight);
@@ -51,23 +34,6 @@
       window.addEventListener('keydown', function (e) { if (e.key !== 'Tab') skip(); }, { once: true });
     }
 
-    // Hover: Speichen deuten sich an. Klick: Netz spannt sich auf, dann Seitenwechsel
-    intro.querySelectorAll('.choice').forEach(function (link) {
-      link.addEventListener('mouseenter', function () { web.classList.add('peek'); });
-      link.addEventListener('mouseleave', function () { web.classList.remove('peek'); });
-      link.addEventListener('click', function (e) {
-        if (reduce || e.metaKey || e.ctrlKey) return;
-        e.preventDefault();
-        web.classList.add('full');
-        intro.classList.add('leaving');
-        setTimeout(function () { window.location.href = link.href; }, 900);
-      });
-    });
-    // Beim Zurückkehren (Browser-Cache) Netz wieder zurücksetzen
-    window.addEventListener('pageshow', function () {
-      web.classList.remove('full', 'peek');
-      intro.classList.remove('leaving');
-    });
   }
 
   /* ================= Auswahl-Buttons (Du bist / Ich bin) ================= */

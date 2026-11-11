@@ -5,7 +5,7 @@ Statische Website (HTML/CSS/JS, kein Build-Schritt).
 ## Seiten
 | Datei | Inhalt |
 |---|---|
-| `index.html` | Startanimation: Punkt landet, Linie öffnet sich mit „Ich bin“ / „Du bist“, Spinnennetz beim Klick |
+| `index.html` | Startanimation: Punkt landet, Linie öffnet sich mit „Ich bin“ / „Du bist“ |
 | `du-bist.html` | Auswahl Wirtschaft · Wissenschaft · Verwaltung, darunter die Schwerpunkte (direkt verlinkbar mit `#wirtschaft`, `#wissenschaft`, `#verwaltung`) |
 | `ich-bin.html` | Auswahl Wer bin ich? · Was kann ich? · Was kann ich nicht? (`#wer`, `#kann`, `#kann-nicht`) |
 
